@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lolml"
+version = "0.1.0"
+description = "A small ML project for predicting LOL match winners"
+authors = ["Mark Bugden <mathphys@mark-bugden.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.1"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

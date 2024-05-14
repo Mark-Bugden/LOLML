@@ -2,11 +2,11 @@ import requests
 
 from lolml.utilities import utils
 
-# Patch related API calls
-
 
 # ID Related API calls
 ########################
+
+
 # API calls: 1
 def get_PUUID_from_riotID(gameName, tagLine):
     """Get PUUID from the RiotID.
@@ -91,3 +91,31 @@ def get_riotID_from_summonerID(summonerID):
     riotID = get_riotID_from_PUUID(PUUID)
     return riotID
 
+
+# LEAGUE-V4 API calls
+########################
+
+
+def get_league_entries_from_ladder(
+    queue: str, tier: str, division: str, page: int
+) -> list:
+    """Get league entries from the specified queue, tier, division, and page.
+
+    Args:
+        queue: The queue, eg: RANKED_SOLO_5x5
+        tier: The tier, eg: IRON, SILVER; GOLD
+        division: The division, eg: I, II, III, IV
+        page: What page of the ladder you want to query
+
+    Returns:
+        list containing information for the summoners on the given page of the ladder
+    """
+
+    base_api_url = "https://eun1.api.riotgames.com/lol/league/v4/entries/"
+    api_url = base_api_url + queue + "/" + tier + "/" + division + "?page=" + str(page)
+
+    resp = requests.get(api_url + "&api_key=" + utils.getAPI_key())
+
+    ladder_info = resp.json()
+
+    return ladder_info

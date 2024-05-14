@@ -20,8 +20,9 @@ def get_config_patch():
     """Returns the patch version that is saved in the local config file."""
     return config.CONFIG_PATCH
 
+
 def get_current_patch():
-    """ Returns the current patch in League of Legends."""
+    """Returns the current patch in League of Legends."""
 
     url = "https://ddragon.leagueoflegends.com/api/versions.json"
     resp = requests.get(url)
@@ -29,12 +30,13 @@ def get_current_patch():
 
     return list_of_patches[0]
 
+
 def check_config_patch(verbose: bool = True):
     """Checks if the config_patch value is up to date.
-    
+
     Args:
         verbose: Prints details of the patch numbers if true.
-        
+
     Returns:
         True if the patch value in the config file is up to date, false otherwise.
     """

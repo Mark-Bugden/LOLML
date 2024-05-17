@@ -44,9 +44,11 @@ Scraping League of Legends matches is somewhat difficult, as you need a match ID
 
 ## TO DO
 
-- [ ] Convert to google-style docstrings
+- [ ] Make API calls class-based
+- [x] Convert to google-style docstrings
 - [ ] Add docstrings to api calls
 - [ ] Add exception messages (eg. if 403, check api key)
+    - [ ] Use HTTP errors codes in config file
 - [ ] Add type hints
 - [ ] Add regions to api calls
 - [ ] Add rate limits to api calls
